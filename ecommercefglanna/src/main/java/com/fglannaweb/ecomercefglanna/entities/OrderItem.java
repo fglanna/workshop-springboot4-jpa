@@ -1,5 +1,6 @@
 package com.fglannaweb.ecomercefglanna.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fglannaweb.ecomercefglanna.entities.pk.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -16,8 +17,9 @@ public class OrderItem implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @JsonIgnore
     @EmbeddedId
-    public OrderItemPK id;
+    public OrderItemPK id = new OrderItemPK();
 
     private Integer quantity;
     private Double price;
@@ -26,13 +28,13 @@ public class OrderItem implements Serializable {
     }
 
     public OrderItem(Order order, Product product, Integer quantity, Double price) {
-        this.id = new OrderItemPK();
         id.setOrder(order);
         id.setProduct(product);
         this.quantity = quantity;
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
