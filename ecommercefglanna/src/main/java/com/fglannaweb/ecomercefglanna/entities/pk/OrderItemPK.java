@@ -18,7 +18,7 @@ public class OrderItemPK implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private Order order;
+    private Order order; // Associação inversa com coleção de items. "(Set<OrderItem>) Items"
 
     @ManyToOne
     @JoinColumn(name = "product_id")

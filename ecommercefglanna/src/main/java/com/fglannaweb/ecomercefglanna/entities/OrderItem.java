@@ -19,7 +19,7 @@ public class OrderItem implements Serializable {
 
     @JsonIgnore
     @EmbeddedId
-    public OrderItemPK id = new OrderItemPK();
+    public OrderItemPK id = new OrderItemPK(); // Associação de Manytoone com pedido(Order) e com product
 
     private Integer quantity;
     private Double price;
