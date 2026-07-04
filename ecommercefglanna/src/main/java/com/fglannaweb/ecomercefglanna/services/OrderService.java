@@ -22,4 +22,9 @@ public class OrderService {
         Optional<Order> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Order insert(Order obj) {
+        // Em sistemas reais, aqui você setaria o momento atual: obj.setMoment(Instant.now());
+        return repository.save(obj);
+    }
 }
